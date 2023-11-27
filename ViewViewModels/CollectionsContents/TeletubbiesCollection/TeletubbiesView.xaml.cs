@@ -2,9 +2,9 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollect
 
 public partial class TeletubbiesView : ContentPage
 {
-	public TeletubbiesView()
-	{
-		InitializeComponent();
-		BindingContext = new TeletubbiesViewModel();
-	}
+    public TeletubbiesView()
+    {
+        InitializeComponent();
+        BindingContext = new TeletubbiesViewModel();
+    }
 }

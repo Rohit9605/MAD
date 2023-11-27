@@ -20,7 +20,7 @@
                     BorderWidth="2"
                     BackgroundColor="White"
                     FontSize="40"
-                    Command="{Binding OnTeletubbiesClicked}" />
+                    Command="{Binding OnTTClicked}" />
             <Button Text="{Binding ImagesTitle}"
                     TextColor="Red"
                     BorderColor="Red"

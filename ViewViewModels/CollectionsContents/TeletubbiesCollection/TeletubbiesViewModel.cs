@@ -17,7 +17,7 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollect
 
         //ViewModel: Observable collection bound to the View
         //We use ObservableCollection to automatically update the View when the collection changes
-        public ObservableCollection<Teletubbies> SWMoviesCollection { get; }
+        public ObservableCollection<Teletubbies> _teletubbyName { get; }
 
         public TeletubbiesViewModel()
         {
@@ -25,7 +25,7 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollect
             Title = TitleTeletubbies.TTTitle;
 
             //ViewModel: Initialize the ObservableCollection
-            SWMoviesCollection = new ObservableCollection<Teletubbies>();
+            _teletubbyName = new ObservableCollection<Teletubbies>();
 
             _teletubbies = Teletubbies.GetTeletubbies();
             this.LoadTeletubbies();
@@ -36,12 +36,12 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollect
             try
             {
                 //Clear the collection in the ViewModel
-                SWMoviesCollection.Clear();
+                _teletubbyName.Clear();
 
                 foreach (var p in _teletubbies)
                 {
                     //Add the NameOfMovie property of the individual movie in the ViewModel collection
-                    SWMoviesCollection.Add(new Teletubbies { NameOfTeletubby = p.NameOfTeletubby});
+                    _teletubbyName.Add(new Teletubbies { NameOfTeletubby = p.NameOfTeletubby});
                 }
             }
             catch (Exception ex)

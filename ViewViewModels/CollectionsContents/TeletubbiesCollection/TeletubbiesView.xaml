@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MyFirstMobileApp.Models.Entities"
-             x:Class="MyFirstMobileApp.ViewViewModels.CollectionsContents.SWMoviesCollection.StarWarsMoviesView"
+             x:Class="MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollection.TeletubbiesView"
              Title="{Binding Title}">
-    
+
     <StackLayout>
-        
+
         <!-- View Header Label -->
         <StackLayout HorizontalOptions="CenterAndExpand">
-            
+
             <Label Text="Movies" 
                    FontSize="75" 
                    FontAttributes="Bold,Italic" 
@@ -17,23 +17,23 @@
                    BackgroundColor="Red" 
                    WidthRequest="500" 
                    HorizontalTextAlignment="Center" />
-            
+
         </StackLayout>
-        
+
         <!-- View Separator Line -->
         <BoxView HeightRequest="2" BackgroundColor="#000000" />
-        
+
         <!-- View: CollectionView to display Star Wars Movies -->
-        <!-- ViewModel: Binding to the "SWMoviesCollection" in the ViewModel -->
+        <!-- ViewModel: Binding to the "TeletubbiesCollection" in the ViewModel -->
         <CollectionView x:Name="ItemsListView"
-                        ItemsSource="{Binding SWMoviesCollection}"
+                        ItemsSource="{Binding TeletubbiesCollection}"
                         SelectionMode="None"
                         Background="Black">
 
             <CollectionView.ItemsLayout>
-                
+
                 <LinearItemsLayout Orientation="Vertical" />
-                
+
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
@@ -55,8 +55,8 @@
 
                             <StackLayout>
 
-                                <!-- ViewModel: Binding of the NameOfMovie property in the ViewModel which is the property defined in the SWMovies model -->
-                                <Label Text="{Binding NameOfMovie}"
+                                <!-- ViewModel: Binding of the NameOfMovie property in the ViewModel which is the property defined in the Teletubbies model -->
+                                <Label Text="{Binding NameOfTeletubby}"
                                        FontAttributes="Bold"
                                        HorizontalTextAlignment="Center"
                                        BackgroundColor="Black"
@@ -74,7 +74,7 @@
             </CollectionView.ItemTemplate>
 
         </CollectionView>
-        
+
     </StackLayout>
-    
+
 </ContentPage>

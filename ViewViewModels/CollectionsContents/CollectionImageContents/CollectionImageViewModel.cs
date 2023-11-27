@@ -13,27 +13,27 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionImageCon
 {
     public class CollectionImageViewModel : BaseViewModel
     {
-        public ObservableCollection<ActorCharacterInfo> SWCollection { get; }
-        private List<ActorCharacterInfo> _starwars;
+        public ObservableCollection<ActorCharacterInfo> TeletubbiesCollection { get; }
+        private List<ActorCharacterInfo> _teletubbies;
 
         public CollectionImageViewModel()
         {
             Title = TitleCollectionImages.CharactersImagesTitle;
 
             //Instantiate Observable SWCollection
-            SWCollection = new ObservableCollection<ActorCharacterInfo>();
-            _starwars = ActorCharacterInfo.GetSampleCharacterData();
-            this.loadStarWars();
+            TeletubbiesCollection = new ObservableCollection<ActorCharacterInfo>();
+            _teletubbies = ActorCharacterInfo.GetSampleCharacterData();
+            this.loadTeletubbies();
         }
         
-        private void loadStarWars()
+        private void loadTeletubbies()
         {
             try
             {
-                SWCollection.Clear();
-                foreach (var s in _starwars)
+                TeletubbiesCollection.Clear();
+                foreach (var s in _teletubbies)
                 {
-                    SWCollection.Add(s);
+                    TeletubbiesCollection.Add(s);
                 }
             }
             catch (Exception ex)

@@ -14,13 +14,13 @@
 
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
-            <Button Text="{Binding MoviesTitle}"
+            <Button Text="{Binding TeletubbiesTitle}"
                     TextColor="Red"
                     BorderColor="Black"
                     BorderWidth="2"
                     BackgroundColor="White"
                     FontSize="40"
-                    Command="{Binding OnMoviesClicked}" />
+                    Command="{Binding OnTeletubbiesClicked}" />
             <Button Text="{Binding ImagesTitle}"
                     TextColor="Red"
                     BorderColor="Red"

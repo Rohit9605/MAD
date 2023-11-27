@@ -38,7 +38,7 @@
 
             <CollectionView.ItemTemplate>
 
-                <DataTemplate x:DataType="local:StarWarsMovies">
+                <DataTemplate x:DataType="local:TeletubbiesCollection">
 
                     <Grid Padding="2"
                           Background="Red">

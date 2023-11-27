@@ -27,19 +27,19 @@
 
         <RefreshView IsRefreshing="{Binding IsBusy,Mode=TwoWay}" Command="{Binding RefreshCommand}">
 
-            <CollectionView x:Name="ItemsCollectionsView"  ItemsSource="{Binding SWMoviesCollection,Mode=TwoWay}"
+            <CollectionView x:Name="ItemsCollectionsView"  ItemsSource="{Binding TeletubbiesCollection,Mode=TwoWay}"
                                  SelectionMode="None" ItemsLayout="VerticalList" BackgroundColor="Black">
 
                 <CollectionView.ItemTemplate>
 
-                    <DataTemplate x:DataType="model:StarWarsMovies">
+                    <DataTemplate x:DataType="model:Teletubbies">
 
                         <StackLayout>
 
                             <!-- FlexLayout with NameOfMovie and buttons -->
                             <FlexLayout AlignItems="Start">
 
-                                <Label Text="{Binding NameOfMovie,Mode=TwoWay}" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                                <Label Text="{Binding NameOfTeletubby,Mode=TwoWay}" FontAttributes="Bold" HorizontalTextAlignment="Center"
                                         VerticalTextAlignment="End" TextColor="Red" BackgroundColor="Black" FontSize="16"
                                         FlexLayout.Grow="1" HeightRequest="47"/>
 

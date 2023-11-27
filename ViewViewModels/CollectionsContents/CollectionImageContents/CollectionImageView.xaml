@@ -20,7 +20,7 @@
     </ContentPage.Resources>
 
     <CollectionView x:Name="ItemsListView"
-                    ItemsSource="{Binding SWCollection}"
+                    ItemsSource="{Binding TeletubbiesCollection}"
                     SelectionMode="None"
                     ItemsLayout="VerticalList"
                     Background="Black">

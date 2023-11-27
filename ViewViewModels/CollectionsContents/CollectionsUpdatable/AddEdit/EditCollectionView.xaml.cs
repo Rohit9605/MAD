@@ -4,10 +4,10 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsUpdatable.AddEdit;
 
 public partial class EditCollectionView : ContentPage
 {
-	public EditCollectionView(StarWarsMovies sw)
+	public EditCollectionView(Teletubbies tt)
 	{
 		InitializeComponent();
 		BindingContext = new EditCollectionViewModel();
-		MovieTitle.Text = sw.NameOfMovie;
+		MovieTitle.Text = tt.NameOfTeletubby;
 	}
 }

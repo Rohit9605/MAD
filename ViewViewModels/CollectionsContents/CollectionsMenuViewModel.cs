@@ -4,6 +4,7 @@ using MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionIconsContent
 using MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionImageContents;
 using MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionsUpdatable;
 using MyFirstMobileApp.ViewViewModels.CollectionsContents.SWMoviesCollection;
+using MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,13 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents
     public class CollectionsMenuViewModel : BaseViewModel
     {
         
-        public string MoviesTitle { get; set; } = TitleCollectionsMenu.MoviesTitle;
+        public string TeletubbiesTitle { get; set; } = TitleCollectionsMenu.TTTitle;
         public string ImagesTitle { get; set; } = TitleCollectionsMenu.ImagesTitle;
         public string ButtonsTitle { get; set; } = TitleCollectionsMenu.ButtonsTitle;
         public string IconsTitle { get; set; } = TitleCollectionsMenu.IconsTitle;
 
         //Button Commands
-        public ICommand OnMoviesClicked { get; set; }
+        public ICommand OnTTClicked { get; set; }
         public ICommand OnCollectionImageClicked { get; set; }
         public ICommand OnButtonsClicked { get; set; }
         public ICommand OnIconsClicked { get; set; }
@@ -32,16 +33,16 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents
         {
             Title = TitleMain.CollectionsTitle;
 
-            OnMoviesClicked = new Command(OnMoviesClickedAsync);
+            OnTTClicked = new Command(OnTeletubbiesClickedAsync);
             OnCollectionImageClicked = new Command(OnCollectionImageClickedAsync);
             OnButtonsClicked = new Command(OnButtonsClickedAsync);
             OnIconsClicked = new Command(OnIconsClickedAsync);
 
         }
 
-        private async void OnMoviesClickedAsync()
+        private async void OnTeletubbiesClickedAsync()
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new StarWarsMoviesView());
+            await Application.Current.MainPage.Navigation.PushAsync(new TeletubbiesView());
         }
 
         private async void OnCollectionImageClickedAsync()

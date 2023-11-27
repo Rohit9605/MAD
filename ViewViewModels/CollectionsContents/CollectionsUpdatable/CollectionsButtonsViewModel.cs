@@ -10,34 +10,34 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionsUpdatab
 {
     public class CollectionsButtonsViewModel : BaseViewModel
     {
-        public ObservableCollection<StarWarsMovies> SWMoviesCollection { get; set; }
+        public ObservableCollection<Teletubbies> SWteletubbysCollection { get; set; }
 
         public CollectionsButtonsViewModel() 
         {
             //Set the title for this view
             Title = TitleCollectionsButtons.ButtonsTitle;
 
-            //Create a new ObservableCollection to store movies
-            SWMoviesCollection = new ObservableCollection<StarWarsMovies>();
+            //Create a new ObservableCollection to store teletubbys
+            SWteletubbysCollection = new ObservableCollection<Teletubbies>();
 
-            //Load movies from the data source
-            LoadMovies();
+            //Load teletubbys from the data source
+            Loadteletubbys();
         }
 
-        private void LoadMovies()
+        private void Loadteletubbys()
         {
             IsBusy = true;
 
             try
             {
                 //Clear the existing collection
-                SWMoviesCollection.Clear();
+                SWteletubbysCollection.Clear();
 
-                //Get a list of Star Wars movies and add them to the collection
-                var starWarsMovies = StarWarsMovies.GetMovies();
-                foreach(var movie in starWarsMovies)
+                //Get a list of Star Wars teletubbys and add them to the collection
+                var starWarsteletubbys = Teletubbies.GetTeletubbies();
+                foreach(var teletubby in starWarsteletubbys)
                 {
-                    SWMoviesCollection.Add(movie);
+                    SWteletubbysCollection.Add(teletubby);
                 }
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionsUpdatab
 
         }
 
-        //Command to add a new movie
+        //Command to add a new teletubby
         public ICommand AddCommand => new Command(async () =>
         {
             //Navigate to the AddCollectionView
@@ -61,49 +61,49 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.CollectionsUpdatab
             // A messaging event is a way for different parts of your app to communicate.
             // It's like a message sent from one part to another to share data or trigger actions.
             // MessagingCenter helps subscribe to and send these events.
-            // In this code, when you add a movie in AddCollectionView, it sends on "AddMovies" event.
-            // CollectionsButtonsViewModel listens for this event and updates the movie list.
+            // In this code, when you add a teletubby in AddCollectionView, it sends on "AddTeletubbies" event.
+            // CollectionsButtonsViewModel listens for this event and updates the teletubby list.
             //****************
-            //Subscribe to the "AddMovies" messaging event to receive updated data from AddCollectionView
-            MessagingCenter.Subscribe<StarWarsMovies>(this, "AddMovies", async data =>
+            //Subscribe to the "AddTeletubbies" messaging event to receive updated data from AddCollectionView
+            MessagingCenter.Subscribe<Teletubbies>(this, "AddTeletubbies", async data =>
             {
-                //Add the new movie data to the collection
-                SWMoviesCollection.Add(data);
+                //Add the new teletubby data to the collection
+                SWteletubbysCollection.Add(data);
 
                 //Unsubscribe from the messaging event
-                MessagingCenter.Unsubscribe<StarWarsMovies>(this, "AddMovies");
+                MessagingCenter.Unsubscribe<Teletubbies>(this, "AddTeletubbies");
             });
         });
 
-        //Command to update a movie
-        public ICommand UpdateCommand => new Command<StarWarsMovies>(async movie =>
+        //Command to update a teletubby
+        public ICommand UpdateCommand => new Command<Teletubbies>(async teletubby =>
         {
-            //Get the index of the selected movie in the collection
-            var index = SWMoviesCollection.IndexOf(movie);
+            //Get the index of the selected teletubby in the collection
+            var index = SWteletubbysCollection.IndexOf(teletubby);
             
             //Navigate to the AddCollectionView
-            await Application.Current.MainPage.Navigation.PushAsync(new EditCollectionView(movie));
+            await Application.Current.MainPage.Navigation.PushAsync(new EditCollectionView(teletubby));
 
             //****************
             // A messaging event is a way for different parts of your app to communicate.
             // It's like a message sent from one part to another to share data or trigger actions.
             // MessagingCenter helps subscribe to and send these events.
-            // In this code, when you update a movie in EditCollectionView, it sends on "UpdateMovies" event.
-            // CollectionsButtonsViewModel listens for this event and updates the movie list.
+            // In this code, when you update a teletubby in EditCollectionView, it sends on "Updateteletubbys" event.
+            // CollectionsButtonsViewModel listens for this event and updates the teletubby list.
             //****************
-            //Subscribe to the "UpdateMovies" messaging event to receive updated data from EditCollectionView
-            MessagingCenter.Subscribe<StarWarsMovies>(this, "UpdateMovies", updatedMovie =>
+            //Subscribe to the "Updateteletubbys" messaging event to receive updated data from EditCollectionView
+            MessagingCenter.Subscribe<Teletubbies>(this, "UpdateTeletubbies", updatedTeletubby =>
             {
-                //Update the movie in the collection with the edited data
-                SWMoviesCollection[index] = updatedMovie;
+                //Update the teletubby in the collection with the edited data
+                SWteletubbysCollection[index] = updatedTeletubby;
             });
         });
 
-        //Command to delete a movie
-        public ICommand DeleteCommand => new Command<StarWarsMovies>(movie =>
+        //Command to delete a teletubby
+        public ICommand DeleteCommand => new Command<Teletubbies>(teletubby =>
         {
-            //Remove the selected movie from the collection
-            SWMoviesCollection.Remove(movie);
+            //Remove the selected teletubby from the collection
+            SWteletubbysCollection.Remove(teletubby);
         });
     }
 }

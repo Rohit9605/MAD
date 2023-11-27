@@ -8,40 +8,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.SWMoviesCollection
+namespace MyFirstMobileApp.ViewViewModels.CollectionsContents.TeletubbiesCollection
 {
-    public class StarWarsMovieViewModel : BaseViewModel
+    public class TeletubbiesViewModel : BaseViewModel
     {
         //ViewModel: Private fields
-        private List<StarWarsMovies> _swmovies;
+        private List<Teletubbies> _teletubbies;
 
         //ViewModel: Observable collection bound to the View
         //We use ObservableCollection to automatically update the View when the collection changes
-        public ObservableCollection<StarWarsMovies> SWMoviesCollection { get; }
+        public ObservableCollection<Teletubbies> SWMoviesCollection { get; }
 
-        public StarWarsMovieViewModel()
+        public TeletubbiesViewModel()
         {
             //ViewModel: Setting the page title for the View
-            Title = TitleStarWarsMovies.SWTitle;
+            Title = TitleTeletubbies.TTTitle;
 
             //ViewModel: Initialize the ObservableCollection
-            SWMoviesCollection = new ObservableCollection<StarWarsMovies>();
+            SWMoviesCollection = new ObservableCollection<Teletubbies>();
 
-            _swmovies = StarWarsMovies.GetMovies();
-            this.LoadMovies();
+            _teletubbies = Teletubbies.GetTeletubbies();
+            this.LoadTeletubbies();
         }
 
-        private void LoadMovies()
+        private void LoadTeletubbies()
         {
             try
             {
                 //Clear the collection in the ViewModel
                 SWMoviesCollection.Clear();
 
-                foreach (var p in _swmovies)
+                foreach (var p in _teletubbies)
                 {
                     //Add the NameOfMovie property of the individual movie in the ViewModel collection
-                    SWMoviesCollection.Add(new StarWarsMovies { NameOfMovie = p.NameOfMovie });
+                    SWMoviesCollection.Add(new Teletubbies { NameOfTeletubby = p.NameOfTeletubby});
                 }
             }
             catch (Exception ex)

@@ -9,7 +9,7 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsUpdatable.AddEdit
     public class AddCollectionViewModel : BaseViewModel
     {
         public ICommand SaveBtnClicked { get; set; }
-        private string _movieName = string.Empty;
+        private string _teletubbyName = string.Empty;
 
         public AddCollectionViewModel()
         {
@@ -19,28 +19,28 @@ namespace MyFirstMobileApp.ViewViewModels.CollectionsUpdatable.AddEdit
 
         public string MovieName
         {
-            get { return _movieName; }
+            get { return _teletubbyName; }
 
             set
             {
-                if (_movieName != value)
-                    SetProperty(ref _movieName, value);
+                if (_teletubbyName != value)
+                    SetProperty(ref _teletubbyName, value);
             }
         }
 
         private void PerformSave()
         {
-            if (string.IsNullOrEmpty(_movieName.Trim()))
+            if (string.IsNullOrEmpty(_teletubbyName.Trim()))
             {
                 // Use Page.DisplayAlert to display the alert
                 Application.Current.MainPage.DisplayAlert(TitleCollectionsButtons.AddTitle, "Title cannot be empty", "Ok"); //Changed from Msgs.NotEmpty
                 return;
             }
 
-            StarWarsMovies movies = new StarWarsMovies();
-            movies.NameOfMovie = _movieName;
+            Teletubbies teletubbies = new Teletubbies();
+            teletubbies.NameOfTeletubby = _teletubbyName;
 
-            MessagingCenter.Send<StarWarsMovies>(movies, "AddMovies");
+            MessagingCenter.Send<Teletubbies>(teletubbies, "AddTeletubbies");
 
             if (Application.Current.MainPage is NavigationPage navigationPage)
             {

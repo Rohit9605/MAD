@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyFirstMobileApp.Models.Entities
 {
-    public static class TitleStarWarsMovies
+    public static class TitleTeletubbies
     {
-        public static String SWTitle = "Collection View";
+        public static String TTTitle = "Collection View";
     }
 }
